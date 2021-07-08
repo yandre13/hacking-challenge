@@ -1,16 +1,69 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Lato', sans-serif;
+  color: #676f8f;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --main-color: #ef3340;
+  --sec-color: #6769ff;
+  --title-color: #494f66;
 }
 
-* {
-  box-sizing: border-box;
+.text-main {
+  color: var(--main-color);
 }
+.bg-main {
+  background: var(--main-color);
+}
+.text-sec {
+  color: var(--sec-color);
+}
+.bg-sec {
+  background: var(--sec-color);
+}
+.text-title {
+  color: var(--title-color);
+}
+
+.bg-mobile {
+  background: #f7f8fc;
+}
+
+select,
+input {
+  height: 50px;
+}
+@layer base {
+  .container_mobile {
+    @apply mx-auto md:mx-0 px-[1.5rem] md:p-0 w-full sm:max-w-[540px] md:max-w-full;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    .bg_banner {
+      background-image: url('/img/bg_banner.png');
+      background-position-x: 100%;
+      background-size: cover;
+    }
+  }
+}
+
+/* .scroll::-webkit-scrollbar {
+  display: none;
+}
+.scroll {
+  -ms-overflow-style: none;
+} */
