@@ -1,3 +1,4 @@
+import React from 'react'
 import {useAppValue} from 'context/AppContext'
 import Head from 'next/head'
 import useIsMobile from 'hooks/useIsMobile'
@@ -17,6 +18,16 @@ export default function Page() {
   const {isMobile} = useIsMobile()
   const router = useRouter()
 
+  React.useEffect(() => {
+    /* eslint-disable */
+    if (!state.placa) router.push('/')
+  }, [state])
+  if (!state.placa)
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    )
   return (
     <>
       <Head>

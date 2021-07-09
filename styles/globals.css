@@ -61,7 +61,12 @@ input {
 @layer utilities {
   @variants responsive {
     .bg_banner {
-      background-image: url('/img/bg_banner.png');
+      background: url('/img/bg_banner.png');
+      background-position-x: 100%;
+      background-size: cover;
+    }
+    .bg_gracias {
+      background: url('/img/bg_gracias.png');
       background-position-x: 100%;
       background-size: cover;
     }

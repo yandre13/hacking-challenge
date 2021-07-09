@@ -26,11 +26,11 @@ function Counter() {
         className="flex justify-between items-center p-4 mt-4 sm:mt-0
 				border border-[#C5CBE0] rounded-lg"
       >
-        <button role="button" onClick={() => handleCount('rest', 100)}>
+        <button onClick={() => handleCount('rest', 100)}>
           <MinusIcon />
         </button>
         <p className="mx-3">$ {state.sum.toLocaleString('en-US')}</p>
-        <button role="button" onClick={() => handleCount('add', 100)}>
+        <button onClick={() => handleCount('add', 100)}>
           <PlusIcon />
         </button>
       </div>

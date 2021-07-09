@@ -42,6 +42,7 @@ function FormHome() {
           {...register('document', {required: true, pattern: /([0-9]{8})/})}
           className="w-[70%] border border-gray-300 rounded-r px-4 py-3 outline-none"
           type="tel"
+          autoComplete="off"
           placeholder="Nro. de doc"
         />
         {errors.document && (
@@ -56,6 +57,7 @@ function FormHome() {
           })}
           className="w-full border border-gray-300 rounded px-4 py-3 outline-none"
           type="tel"
+          autoComplete="off"
           placeholder="Celular"
         />
         {errors.phone && (
@@ -67,6 +69,7 @@ function FormHome() {
           {...register('placa', {required: true})}
           className="w-full border border-gray-300 rounded px-4 py-3 outline-none"
           type="text"
+          autoComplete="off"
           placeholder="Placa"
         />
         {errors.placa && (

@@ -1,18 +1,11 @@
 import React from 'react'
 import {MainIcon, MainIconMobile} from 'components/svgs/Page2/Icons'
 import {useAppValue} from 'context/AppContext'
-import {useRouter} from 'next/dist/client/router'
 import useIsMobile from 'hooks/useIsMobile'
 
 function Placa() {
   const [state] = useAppValue()
   const {isMobile} = useIsMobile()
-  const router = useRouter()
-
-  React.useEffect(() => {
-    /* eslint-disable */
-    if (!state.placa) router.push('/')
-  }, [state])
 
   return (
     <div
@@ -32,4 +25,4 @@ function Placa() {
   )
 }
 
-export default Placa
+export default React.memo(Placa)

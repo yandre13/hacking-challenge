@@ -56,4 +56,4 @@ const spring = {
   damping: 30,
 }
 
-export default TabCoberturas
+export default React.memo(TabCoberturas)

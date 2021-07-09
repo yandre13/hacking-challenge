@@ -2,10 +2,12 @@ import React from 'react'
 import {CheckIcon} from 'components/svgs/Page2/Icons'
 import useIsMobile from 'hooks/useIsMobile'
 import {useAppValue} from 'context/AppContext'
+import {useRouter} from 'next/dist/client/router'
 
 function Monto() {
   const {isMobile} = useIsMobile()
   const [state] = useAppValue()
+  const router = useRouter()
   return (
     <article
       className="fixed bg-white lg:bg-transparent
@@ -52,7 +54,7 @@ function Monto() {
 				text-white text-sm uppercase
 				bg-main rounded-lg
 				px-12 py-4 lg:py-3"
-        type="submit"
+        onClick={() => router.push('/gracias')}
       >
         lo quiero
       </button>

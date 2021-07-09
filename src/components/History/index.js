@@ -1,3 +1,4 @@
+import React from 'react'
 import useIsMobile from 'hooks/useIsMobile'
 import {BackIcon} from 'components/svgs/Page2/Icons'
 import {useRouter} from 'next/dist/client/router'
@@ -53,4 +54,4 @@ function Desktop() {
   )
 }
 
-export default History
+export default React.memo(History)
