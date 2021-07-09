@@ -1,13 +1,21 @@
+import React from 'react'
 import Head from 'next/head'
 import Navbar from 'components/Navbar'
-import BannerIcon from 'components/svgs/BannerIcon'
-import BannerIconMobile from 'components/svgs/BannerIconMobile'
 import FormHome from 'components/FormHome'
 import useIsMobile from 'hooks/useIsMobile'
-// import {useAppValue} from 'context/AppContext'
+import {BannerIcon, BannerIconMobile} from 'components/svgs/Page1/Icons'
+import {useAppValue} from 'context/AppContext'
+import {cars} from 'utils'
 
-export default function Home() {
+export default function Home({user, car}) {
   const {isMobile} = useIsMobile()
+  const [, dispatch] = useAppValue()
+
+  React.useEffect(() => {
+    dispatch({type: 'setUser', payload: user})
+    dispatch({type: 'setCar', payload: car})
+  }, [user, car, dispatch])
+
   return (
     <div>
       <Head>
@@ -24,11 +32,11 @@ export default function Home() {
           <article className="w-full md:w-[40%] md:h-[100vh] bg-mobile md:bg_banner flex items-center">
             <div className="container_mobile">
               <div className="w-full md:w-[60%] md:ml-[25%] md:mr-[15%] my-14">
-                <div className="absolute top-[2.5%] right-0 md:relative md:top-auto md:right-auto">
+                <div className="absolute top-[7.5%] right-0 md:relative md:top-auto md:right-auto">
                   {isMobile ? <BannerIconMobile /> : <BannerIcon />}
                 </div>
                 <div className="w-[70%] md:w-full">
-                  <p className="text-xs md:text-base text-title font-bold uppercase">
+                  <p className="text-xs md:text-base text-title font-bold uppercase pt-10 md:pt-0">
                     ¡Nuevo!
                   </p>
                   <h1 className="text-[28px] leading-tight md:text-4xl font-normal text-title mt-2 mb-4">
@@ -44,14 +52,28 @@ export default function Home() {
               </div>
             </div>
           </article>
-          <aricle className="w-full md:w-[60%] md:h-[100vh] container_mobile flex items-center">
-            <div className="w-full md:w-[60%] md:mx-[20%] my-14">
+          <article className="w-full md:w-[60%] md:h-[100vh] container_mobile flex items-center">
+            <div className="w-full md:w-[60%] md:mx-[20%] my-12">
               <h1 className="text-title text-3xl">Déjanos tus datos</h1>
               <FormHome />
             </div>
-          </aricle>
+          </article>
         </section>
       </main>
     </div>
   )
+}
+
+const getNumber = () => Math.floor(Math.random() * 10) + 1
+const getCarById = id => cars.find(c => c.id === id)
+export async function getServerSideProps() {
+  const n = getNumber()
+  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${n}`)
+  const {id, name, username, email} = await res.json()
+  return {
+    props: {
+      user: {id, name, username, email},
+      car: getCarById(n),
+    },
+  }
 }

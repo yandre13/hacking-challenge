@@ -1,14 +1,18 @@
 import Logo from 'components/svgs/Logo'
 import TelIcon from 'components/svgs/TelIcon'
 import useIsMobile from 'hooks/useIsMobile'
+import cn from 'classnames'
 
-function Navbar() {
+function Navbar({white}) {
   const {isMobile} = useIsMobile()
 
   return (
     <header
-      className="md:fixed md:inset-x-0 container flex items-center
-		h-14 md:h-16 z-10"
+      className={cn(
+        'md:inset-x-0 container flex items-center',
+        'h-14 md:h-16 z-10',
+        white ? 'bg-white' : 'fixed bg-mobile md:bg-transparent',
+      )}
     >
       <div className="flex-1">
         <Logo />

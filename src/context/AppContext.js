@@ -1,10 +1,11 @@
-import {createContext, useContext, useState} from 'react'
+import {createContext, useContext, useReducer} from 'react'
 
 const AppContext = createContext()
 
-export const AppProvider = ({children}) => {
-  const [state, setState] = useState({name: 'Jhon'})
-  return <AppContext.Provider value={state}>{children}</AppContext.Provider>
-}
+export const AppProvider = ({reducer, initialState, children}) => (
+  <AppContext.Provider value={useReducer(reducer, initialState)}>
+    {children}
+  </AppContext.Provider>
+)
 
 export const useAppValue = () => useContext(AppContext)

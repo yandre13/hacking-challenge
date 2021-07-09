@@ -16,6 +16,7 @@ body {
   --main-color: #ef3340;
   --sec-color: #6769ff;
   --title-color: #494f66;
+  --sub-color: #a3abcc;
 }
 
 .text-main {
@@ -33,9 +34,15 @@ body {
 .text-title {
   color: var(--title-color);
 }
+.text-sub {
+  color: var(--sub-color);
+}
 
 .bg-mobile {
   background: #f7f8fc;
+}
+.border-color {
+  border-color: #e4e8f7;
 }
 
 select,
@@ -60,10 +67,3 @@ input {
     }
   }
 }
-
-/* .scroll::-webkit-scrollbar {
-  display: none;
-}
-.scroll {
-  -ms-overflow-style: none;
-} */
