@@ -20,9 +20,10 @@ export default function Page() {
 
   React.useEffect(() => {
     /* eslint-disable */
+    if (state.completed) router.push('/')
     if (!state.placa) router.push('/')
-  }, [state])
-  if (!state.placa)
+  }, [])
+  if (!state.placa || state.completed)
     return (
       <div>
         <h1>Loading...</h1>

@@ -78,13 +78,20 @@ function FormHome() {
       </div>
       <div className="w-full mb-5">
         <label className="flex">
-          <input className="scale-125 origin-left" type="checkbox" required />
+          <input
+            className="scale-125 origin-left p-2 outline-none"
+            type="checkbox"
+            required
+          />
           <small className="pl-3 text-sm self-end mt-[13px]">
             Acepto la{' '}
-            <span className="underline">
+            <a href="#" className="underline">
               Política de Protección de Datos Personales
-            </span>{' '}
-            y los <span className="underline">Términos y Condiciones.</span>
+            </a>{' '}
+            y los{' '}
+            <a href="#" className="underline">
+              Términos y Condiciones.
+            </a>
           </small>
         </label>
       </div>

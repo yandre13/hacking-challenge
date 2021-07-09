@@ -6,7 +6,7 @@ import {useRouter} from 'next/dist/client/router'
 
 function Monto() {
   const {isMobile} = useIsMobile()
-  const [state] = useAppValue()
+  const [state, dispatch] = useAppValue()
   const router = useRouter()
   return (
     <article
@@ -54,7 +54,10 @@ function Monto() {
 				text-white text-sm uppercase
 				bg-main rounded-lg
 				px-12 py-4 lg:py-3"
-        onClick={() => router.push('/gracias')}
+        onClick={() => {
+          router.push('/gracias')
+          dispatch({type: 'setCompleted', payload: true})
+        }}
       >
         lo quiero
       </button>

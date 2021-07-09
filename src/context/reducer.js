@@ -4,6 +4,7 @@ export const initialState = {
   amount: 35,
   sum: 14300,
   car: {},
+  completed: false,
 }
 
 export const reducer = (state, action) => {
@@ -37,6 +38,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         sum: action.payload,
+      }
+    case 'setCompleted':
+      return {
+        ...state,
+        completed: action.payload,
       }
 
     default:

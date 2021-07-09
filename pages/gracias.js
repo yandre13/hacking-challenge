@@ -10,7 +10,7 @@ export default function Gracias() {
   const {isMobile} = useIsMobile()
   const [state] = useAppValue()
   const router = useRouter()
-  console.log(state)
+
   React.useEffect(() => {
     /* eslint-disable */
     if (!state.placa) router.push('/')
